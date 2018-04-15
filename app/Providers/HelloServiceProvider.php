@@ -15,7 +15,12 @@ class HelloServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            'index', function($view){
+            //$view->with('変数名', '値');
+            'index', 'App\Http\Composers\HelloComposer'
+        );
+
+        View::composer(
+            'test', function($view){ //ここで供給するテンプレートをしてする
                 //$view->with('変数名', '値');
                 $view->with('view_message', 'composer message');
             }
