@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Middleware\HelloMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,6 +21,9 @@ Route::get('/', function () {
 Route::get('invoke', 'SingleActionController');
 
 
-Route::get('hello_g', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+	->middleware('helo');
 
 Route::post('hello_p', 'HelloController@post');
+
+Route::get('test', 'TestServiceController@index');
