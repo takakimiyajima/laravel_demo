@@ -24,6 +24,9 @@ Route::get('invoke', 'SingleActionController');
 Route::get('hello', 'HelloController@index')
 	->middleware('helo');
 
-Route::post('hello_p', 'HelloController@post');
+//フォームのバリデーションを確認
+Route::get('form_test', 'FormTestController@index');
+Route::post('form_test', 'FormTestController@post');
+
 
 Route::get('test', 'TestServiceController@index');
